@@ -75,10 +75,12 @@ public class Operacao implements IOperacao, IProveniencia, IEmpresaContacto {
         this.codigoProveniencia = codigoProveniencia;
     }
 
+    @Override
     public IEmpresaContacto getCodigoEmpresaContacto() {
         return codigoEmpresaContacto;
     }
 
+    @Override
     public void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto) {
         this.codigoEmpresaContacto = codigoEmpresaContacto;
     }

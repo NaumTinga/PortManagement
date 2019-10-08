@@ -21,7 +21,7 @@ public interface IOperacao {
     
     IProveniencia getCodigoProveniencia();
     
-    IEmpresaContacto getCodigoEmpresaContaco();
+    IEmpresaContacto getCodigoEmpresaContacto();
     
     void setNavio(String navio);
     
