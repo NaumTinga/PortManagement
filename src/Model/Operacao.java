@@ -5,6 +5,9 @@
  */
 package Model;
 
+import IContrato.IEmpresaContacto;
+import IContrato.IOperacao;
+import IContrato.IProveniencia;
 import java.util.Date;
 
 /**
@@ -12,64 +15,72 @@ import java.util.Date;
  * 
  * @author NAUM
  */
-public class Operacao {
+public class Operacao implements IOperacao, IProveniencia, IEmpresaContacto {
     
     private String navio;
     private Date dataChegadaNavio;
     private Date dataInicioOperacao;
-    private int codigoProveniencia;
-    private int empresaContacto;
+    private IProveniencia codigoProveniencia;
+    private IEmpresaContacto codigoEmpresaContacto;
 
-    public Operacao(String navio, Date dataChegadaNavio, Date dataInicioOperacao, int codigoProveniencia, int empresaContacto) {
+    public Operacao(String navio, Date dataChegadaNavio, Date dataInicioOperacao, IProveniencia codigoProveniencia, IEmpresaContacto codigoEmpresaContacto) {
         this.navio = navio;
         this.dataChegadaNavio = dataChegadaNavio;
         this.dataInicioOperacao = dataInicioOperacao;
         this.codigoProveniencia = codigoProveniencia;
-        this.empresaContacto = empresaContacto;
+        this.codigoEmpresaContacto = codigoEmpresaContacto;
     }
 
     public Operacao() {
     }
 
     
+    @Override
     public String getNavio() {
         return navio;
     }
 
+    @Override
     public void setNavio(String navio) {
         this.navio = navio;
     }
 
+    @Override
     public Date getDataChegadaNavio() {
         return dataChegadaNavio;
     }
 
+    @Override
     public void setDataChegadaNavio(Date dataChegadaNavio) {
         this.dataChegadaNavio = dataChegadaNavio;
     }
 
+    @Override
     public Date getDataInicioOperacao() {
         return dataInicioOperacao;
     }
 
+    @Override
     public void setDataInicioOperacao(Date dataInicioOperacao) {
         this.dataInicioOperacao = dataInicioOperacao;
     }
 
-    public int getCodigoProveniencia() {
+    @Override
+    public IProveniencia getCodigoProveniencia() {
         return codigoProveniencia;
     }
 
-    public void setCodigoProveniencia(int codigoProveniencia) {
+    @Override
+    public void setCodigoProveniencia(IProveniencia codigoProveniencia) {
         this.codigoProveniencia = codigoProveniencia;
     }
 
-    public int getEmpresaContacto() {
-        return empresaContacto;
+    public IEmpresaContacto getCodigoEmpresaContacto() {
+        return codigoEmpresaContacto;
     }
 
-    public void setEmpresaContacto(int empresaContacto) {
-        this.empresaContacto = empresaContacto;
+    public void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto) {
+        this.codigoEmpresaContacto = codigoEmpresaContacto;
     }
     
     
