@@ -5,79 +5,95 @@
  */
 package Model;
 
+import IContrato.IArmazem;
+import IContrato.ICarga;
+import IContrato.IDescarga;
+import IContrato.IOperacao;
 import java.util.Date;
 
 /**
  *
  * @author NAUM
  */
-public class Descarga {
+public class Descarga implements IDescarga {
     
     private int totalMercadoriaBoa;
     private int totalMercadoriaMa;
     private Date dataChegadaCarga;
-    private int codigoCarga;
-    private int codigoArmazem;
-    private int codigoOperacao;
+    private ICarga carga;
+    private IArmazem armazem;
+    private IOperacao operacao;
 
-    public Descarga(int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, int codigoCarga, int codigoArmazem, int codigoOperacao) {
+    public Descarga(int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {
         this.totalMercadoriaBoa = totalMercadoriaBoa;
         this.totalMercadoriaMa = totalMercadoriaMa;
         this.dataChegadaCarga = dataChegadaCarga;
-        this.codigoCarga = codigoCarga;
-        this.codigoArmazem = codigoArmazem;
-        this.codigoOperacao = codigoOperacao;
+        this.carga = carga;
+        this.armazem = armazem;
+        this.operacao = operacao;
     }
 
     public Descarga() {
     }
 
+    @Override
     public int getTotalMercadoriaBoa() {
         return totalMercadoriaBoa;
     }
 
+    @Override
     public void setTotalMercadoriaBoa(int totalMercadoriaBoa) {
         this.totalMercadoriaBoa = totalMercadoriaBoa;
     }
 
+    @Override
     public int getTotalMercadoriaMa() {
         return totalMercadoriaMa;
     }
 
+    @Override
     public void setTotalMercadoriaMa(int totalMercadoriaMa) {
         this.totalMercadoriaMa = totalMercadoriaMa;
     }
 
+    @Override
     public Date getDataChegadaCarga() {
         return dataChegadaCarga;
     }
 
+    @Override
     public void setDataChegadaCarga(Date dataChegadaCarga) {
         this.dataChegadaCarga = dataChegadaCarga;
     }
 
-    public int getCodigoCarga() {
-        return codigoCarga;
+    @Override
+    public ICarga getCarga() {
+        return carga;
     }
 
-    public void setCodigoCarga(int codigoCarga) {
-        this.codigoCarga = codigoCarga;
+    @Override
+    public void setCarga(ICarga carga) {
+        this.carga = carga;
     }
 
-    public int getCodigoArmazem() {
-        return codigoArmazem;
+    @Override
+    public IArmazem getArmazem() {
+        return armazem;
     }
 
-    public void setCodigoArmazem(int codigoArmazem) {
-        this.codigoArmazem = codigoArmazem;
+    @Override
+    public void setArmazem(IArmazem armazem) {
+        this.armazem = armazem;
     }
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
     
     

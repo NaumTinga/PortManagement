@@ -5,6 +5,13 @@
  */
 package Model;
 
+import IContrato.IArmazem;
+import IContrato.ICarga;
+import IContrato.IContentor;
+import IContrato.IEndereco;
+import IContrato.IMercadoria;
+import IContrato.IOperacao;
+import IContrato.ITransporte;
 import java.sql.Time;
 import java.util.Date;
 
@@ -12,27 +19,27 @@ import java.util.Date;
  *
  * @author NAUM
  */
-public class Carga {
-    
-    private int codigoOperacao;
-    private int codigoContentor;
-    private int codigoMercadoria;
-    private int codigoTransporte;
-    private int codigoEndereco;
-    private int codigoArmazem;
+public class Carga implements ICarga {
+
+    private IOperacao operacao;
+    private IContentor contentor;
+    private IMercadoria mercadoria;
+    private ITransporte transporte;
+    private IEndereco endereco;
+    private IArmazem armazem;
     private int totalMercadoriaBoa;
     private int totalMercadoriaMa;
     private Date dataInicioCarga;
     private Time horaInicioCarga;
     private String nota;
 
-    public Carga(int codigoOperacao, int codigoContentor, int codigoMercadoria, int codigoTransporte, int codigoEndereco, int codigoArmazem, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataInicioCarga, Time horaInicioCarga, String nota) {
-        this.codigoOperacao = codigoOperacao;
-        this.codigoContentor = codigoContentor;
-        this.codigoMercadoria = codigoMercadoria;
-        this.codigoTransporte = codigoTransporte;
-        this.codigoEndereco = codigoEndereco;
-        this.codigoArmazem = codigoArmazem;
+    public Carga(IOperacao operacao, IContentor contentor, IMercadoria mercadoria, ITransporte transporte, IEndereco endereco, IArmazem armazem, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataInicioCarga, Time horaInicioCarga, String nota) {
+        this.operacao = operacao;
+        this.contentor = contentor;
+        this.mercadoria = mercadoria;
+        this.transporte = transporte;
+        this.endereco = endereco;
+        this.armazem = armazem;
         this.totalMercadoriaBoa = totalMercadoriaBoa;
         this.totalMercadoriaMa = totalMercadoriaMa;
         this.dataInicioCarga = dataInicioCarga;
@@ -43,93 +50,114 @@ public class Carga {
     public Carga() {
     }
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
 
-    public int getCodigoContentor() {
-        return codigoContentor;
+    @Override
+
+    public IContentor getContentor() {
+        return contentor;
     }
 
-    public void setCodigoContentor(int codigoContentor) {
-        this.codigoContentor = codigoContentor;
+    @Override
+    public void setContentor(IContentor contentor) {
+        this.contentor = contentor;
     }
 
-    public int getCodigoMercadoria() {
-        return codigoMercadoria;
+    @Override
+    public IMercadoria getMercadoria() {
+        return mercadoria;
     }
 
-    public void setCodigoMercadoria(int codigoMercadoria) {
-        this.codigoMercadoria = codigoMercadoria;
+    @Override
+    public void setMercadoria(IMercadoria mercadoria) {
+        this.mercadoria = mercadoria;
     }
 
-    public int getCodigoTransporte() {
-        return codigoTransporte;
+    @Override
+    public ITransporte getTransporte() {
+        return transporte;
     }
 
-    public void setCodigoTransporte(int codigoTransporte) {
-        this.codigoTransporte = codigoTransporte;
+    @Override
+    public void setTransporte(ITransporte transporte) {
+        this.transporte = transporte;
     }
 
-    public int getCodigoEndereco() {
-        return codigoEndereco;
+    @Override
+    public IEndereco getEndereco() {
+        return endereco;
     }
 
-    public void setCodigoEndereco(int codigoEndereco) {
-        this.codigoEndereco = codigoEndereco;
+    @Override
+    public void setEndereco(IEndereco endereco) {
+        this.endereco = endereco;
     }
 
-    public int getCodigoArmazem() {
-        return codigoArmazem;
+    public IArmazem getArmazem() {
+        return armazem;
     }
 
-    public void setCodigoArmazem(int codigoArmazem) {
-        this.codigoArmazem = codigoArmazem;
+    @Override
+    public void setArmazem(IArmazem armazem) {
+        this.armazem = armazem;
     }
 
+    @Override
     public int getTotalMercadoriaBoa() {
         return totalMercadoriaBoa;
     }
 
+    @Override
     public void setTotalMercadoriaBoa(int totalMercadoriaBoa) {
         this.totalMercadoriaBoa = totalMercadoriaBoa;
     }
 
+    @Override
     public int getTotalMercadoriaMa() {
         return totalMercadoriaMa;
     }
 
+    @Override
     public void setTotalMercadoriaMa(int totalMercadoriaMa) {
         this.totalMercadoriaMa = totalMercadoriaMa;
     }
 
+    @Override
     public Date getDataInicioCarga() {
         return dataInicioCarga;
     }
 
+    @Override
     public void setDataInicioCarga(Date dataInicioCarga) {
         this.dataInicioCarga = dataInicioCarga;
     }
 
+    @Override
     public Time getHoraInicioCarga() {
         return horaInicioCarga;
     }
 
+    @Override
     public void setHoraInicioCarga(Time horaInicioCarga) {
         this.horaInicioCarga = horaInicioCarga;
     }
 
+    @Override
     public String getNota() {
         return nota;
     }
 
+    @Override
     public void setNota(String nota) {
         this.nota = nota;
     }
-    
-    
+
 }

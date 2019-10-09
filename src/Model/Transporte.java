@@ -5,20 +5,23 @@
  */
 package Model;
 
+import IContrato.IOperacao;
+import IContrato.ITransporte;
+
 /**
  *
  * @author NAUM
  */
-public class Transporte {
+public class Transporte implements ITransporte {
     
-    private int codigoOperacao;
+    private IOperacao operacao;
     private String nomeMotorista;
     private String matriculaCamiao;
     private String matriculaAtrelado;
     private int codigoTransporte;
 
-    public Transporte(int codigoOperacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int codigoTransporte) {
-        this.codigoOperacao = codigoOperacao;
+    public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int codigoTransporte) {
+        this.operacao = operacao;
         this.nomeMotorista = nomeMotorista;
         this.matriculaCamiao = matriculaCamiao;
         this.matriculaAtrelado = matriculaAtrelado;
@@ -30,47 +33,54 @@ public class Transporte {
     public Transporte() {
     }
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
 
+    @Override
     public String getNomeMotorista() {
         return nomeMotorista;
     }
 
+    @Override
     public void setNomeMotorista(String nomeMotorista) {
         this.nomeMotorista = nomeMotorista;
     }
 
+    @Override
     public String getMatriculaCamiao() {
         return matriculaCamiao;
     }
 
+    @Override
     public void setMatriculaCamiao(String matriculaCamiao) {
         this.matriculaCamiao = matriculaCamiao;
     }
 
+    @Override
     public String getMatriculaAtrelado() {
         return matriculaAtrelado;
     }
 
+    @Override
     public void setMatriculaAtrelado(String matriculaAtrelado) {
         this.matriculaAtrelado = matriculaAtrelado;
     }
 
+    @Override
     public int getCodigoTransporte() {
         return codigoTransporte;
     }
 
+    @Override
     public void setCodigoTransporte(int codigoTransporte) {
         this.codigoTransporte = codigoTransporte;
     }
-    
-    
-    
     
 }

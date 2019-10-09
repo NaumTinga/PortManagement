@@ -5,19 +5,22 @@
  */
 package Model;
 
+import IContrato.IEndereco;
+import IContrato.IOperacao;
+
 /**
  *s
  * @author NAUM
  */
-public class Endereco {
+public class Endereco implements IEndereco  {
     
     private int codigoAdress;
-    private int codigoOperacao;
+    private IOperacao operacao;
     private String endereco;
 
-    public Endereco(int codigoAdress, int codigoOperacao, String endereco) {
+    public Endereco(int codigoAdress, IOperacao operacao, String endereco) {
         this.codigoAdress = codigoAdress;
-        this.codigoOperacao = codigoOperacao;
+        this.operacao = operacao;
         this.endereco = endereco;
     }
 
@@ -25,26 +28,32 @@ public class Endereco {
     }
 
     
+    @Override
     public int getCodigoAdress() {
         return codigoAdress;
     }
 
+    @Override
     public void setCodigoAdress(int codigoAdress) {
         this.codigoAdress = codigoAdress;
     }
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
 
+    @Override
     public String getEndereco() {
         return endereco;
     }
 
+    @Override
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }

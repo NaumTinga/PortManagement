@@ -15,7 +15,7 @@ import java.util.Date;
  * 
  * @author NAUM
  */
-public class Operacao implements IOperacao, IProveniencia, IEmpresaContacto {
+public class Operacao implements IOperacao {
     
     private String navio;
     private Date dataChegadaNavio;
@@ -84,7 +84,5 @@ public class Operacao implements IOperacao, IProveniencia, IEmpresaContacto {
     public void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto) {
         this.codigoEmpresaContacto = codigoEmpresaContacto;
     }
-    
-    
-    
+ 
 }

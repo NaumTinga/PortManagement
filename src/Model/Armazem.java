@@ -5,18 +5,21 @@
  */
 package Model;
 
+import IContrato.IArmazem;
+import IContrato.IOperacao;
+
 /**
  *
  * @author NAUM
  */
-public class Armazem {
-    
-    private int codigoOperacao;
+public class Armazem implements IArmazem {
+
+    private IOperacao operacao;
     private int codigoArmazem;
     private String descricao;
 
-    public Armazem(int codigoOperacao, int codigoArmazem, String descricao) {
-        this.codigoOperacao = codigoOperacao;
+    public Armazem(IOperacao operacao, int codigoArmazem, String descricao) {
+        this.operacao = operacao;
         this.codigoArmazem = codigoArmazem;
         this.descricao = descricao;
     }
@@ -24,29 +27,34 @@ public class Armazem {
     public Armazem() {
     }
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
 
+    @Override
     public int getCodigoArmazem() {
         return codigoArmazem;
     }
 
+    @Override
     public void setCodigoArmazem(int codigoArmazem) {
         this.codigoArmazem = codigoArmazem;
     }
 
+    @Override
     public String getDescricao() {
         return descricao;
     }
 
+    @Override
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
+
 }

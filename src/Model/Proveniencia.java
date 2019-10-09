@@ -5,11 +5,13 @@
  */
 package Model;
 
+import IContrato.IProveniencia;
+
 /**
  *
  * @author NAUM
  */
-public class Proveniencia {
+public class Proveniencia implements IProveniencia{
     
     private int codigoProveniencia;
     private String proveniencia;
@@ -24,18 +26,22 @@ public class Proveniencia {
     
     
 
+    @Override
     public int getCodigoProveniencia() {
         return codigoProveniencia;
     }
 
+    @Override
     public void setCodigoProveniencia(int codigoProveniencia) {
         this.codigoProveniencia = codigoProveniencia;
     }
 
+    @Override
     public String getProveniencia() {
         return proveniencia;
     }
 
+    @Override
     public void setProveniencia(String proveniencia) {
         this.proveniencia = proveniencia;
     }

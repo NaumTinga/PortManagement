@@ -9,13 +9,17 @@ package IContrato;
  *
  * @author NAUM
  */
-public interface IEmpresaContacto {
+public interface IArmazem {
     
-    int getCodigoEmpresaContacto();
+    IOperacao getOperacao();
     
-    String getNome();
+    int getCodigoArmazem();
     
-    void setCodigoEmpresaContacto(int codigoEmpresaContacto);
+    String getDescricao();
     
-    void setNome(String nome);
+    void setOperacao(IOperacao operacao);
+    
+    void setCodigoArmazem(int codigoArmazem);
+    
+    void setDescricao(String descricao);
 }

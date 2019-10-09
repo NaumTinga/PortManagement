@@ -5,51 +5,56 @@
  */
 package Model;
 
+import IContrato.IContentor;
+import IContrato.IOperacao;
+
 /**
  *
  * @author NAUM
  */
-public class Contentor {
-    
-    private int codigoOperacao;
+public class Contentor implements IContentor {
+
+    private IOperacao operacao;
     private int codigoContentor;
     private int nrContentor;
 
-    public Contentor(int codigoOperacao, int codigoContentor, int nrContentor) {
-        this.codigoOperacao = codigoOperacao;
+    public Contentor(IOperacao operacao, int codigoContentor, int nrContentor) {
+        this.operacao = operacao;
         this.codigoContentor = codigoContentor;
         this.nrContentor = nrContentor;
     }
 
     public Contentor() {
     }
-    
-    
 
-    public int getCodigoOperacao() {
-        return codigoOperacao;
+    @Override
+    public IOperacao getOperacao() {
+        return operacao;
     }
 
-    public void setCodigoOperacao(int codigoOperacao) {
-        this.codigoOperacao = codigoOperacao;
+    @Override
+    public void setOperacao(IOperacao operacao) {
+        this.operacao = operacao;
     }
 
+    @Override
     public int getCodigoContentor() {
         return codigoContentor;
     }
 
+    @Override
     public void setCodigoContentor(int codigoContentor) {
         this.codigoContentor = codigoContentor;
     }
 
+    @Override
     public int getNrContentor() {
         return nrContentor;
     }
 
+    @Override
     public void setNrContentor(int nrContentor) {
         this.nrContentor = nrContentor;
     }
-    
-    
-    
+
 }

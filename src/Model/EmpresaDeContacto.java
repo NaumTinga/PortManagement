@@ -5,35 +5,41 @@
  */
 package Model;
 
+import IContrato.IEmpresaContacto;
+
 /**
  *
  * @author NAUM
  */
-public class EmpresaDeContacto {
+public class EmpresaDeContacto implements IEmpresaContacto {
     
-    private int codigoEmpresa;
+    private int codigoEmpresaContacto;
     private String nome;
 
-    public EmpresaDeContacto(int codigoEmpresa, String nome) {
-        this.codigoEmpresa = codigoEmpresa;
+    public EmpresaDeContacto(int codigoEmpresaContacto, String nome) {
+        this.codigoEmpresaContacto = codigoEmpresaContacto;
         this.nome = nome;
     }
 
     public EmpresaDeContacto() {
     }
 
-    public int getCodigoEmpresa() {
-        return codigoEmpresa;
+    @Override
+    public int getCodigoEmpresaContacto() {
+        return codigoEmpresaContacto;
     }
 
-    public void setCodigoEmpresa(int codigoEmpresa) {
-        this.codigoEmpresa = codigoEmpresa;
+    @Override
+    public void setCodigoEmpresaContacto(int codigoEmpresaContacto) {
+        this.codigoEmpresaContacto = codigoEmpresaContacto;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }

@@ -11,4 +11,12 @@ package IContrato;
  */
 public interface IProveniencia {
     
+    int getCodigoProveniencia();
+    
+    String getProveniencia();
+    
+    void setCodigoProveniencia(int codigoProveniencia);
+    
+    void setProveniencia(String proveniencia);
+    
 }
