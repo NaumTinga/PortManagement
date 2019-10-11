@@ -5,13 +5,12 @@
  */
 package View.menu;
 
-import PanelHelper.PanelHelper;
+import Util.PanelHelper;
+import View.operacao.OperacaoView;
+import View.usuario.UsuarioView;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import view.MenuView.SubMenu.HomePanel;
-import view.Operacao.Creat;
-import view.Operacao.Menu;
-import view.Usuario.usuarioView;
+
 
 
 
@@ -28,11 +27,12 @@ int x, y;
   {
     initComponents();
     setHomePanel();
+    setExtendedState(MAXIMIZED_BOTH);
   }
   
   private void setHomePanel()
   {
-    new PanelHelper(mainController,new HomePanel());
+    new PanelHelper(mainController,new Home());
   }
 
   /**
@@ -46,11 +46,11 @@ int x, y;
 
     jPanel1 = new javax.swing.JPanel();
     sideMenu = new javax.swing.JPanel();
-    btnHome = new rsbuttom.RSButtonMetro();
     labelMenu = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    btnUsuario = new rsbuttom.RSButtonMetro();
+    btnHome = new rsbuttom.RSButtonMetro();
     btnOperacao = new rsbuttom.RSButtonMetro();
+    btnUsuario = new rsbuttom.RSButtonMetro();
     btnFeedBack = new rsbuttom.RSButtonMetro();
     header = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
@@ -60,28 +60,12 @@ int x, y;
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setBackground(new java.awt.Color(255, 255, 255));
+    setLocationByPlatform(true);
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
     sideMenu.setBackground(new java.awt.Color(239, 238, 244));
     sideMenu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 0, new java.awt.Color(239, 238, 244)));
-
-    btnHome.setForeground(new java.awt.Color(128, 128, 131));
-    btnHome.setText("Home");
-    btnHome.setColorHover(new java.awt.Color(204, 204, 204));
-    btnHome.setColorNormal(new java.awt.Color(204, 204, 204));
-    btnHome.setColorPressed(new java.awt.Color(204, 204, 204));
-    btnHome.setColorTextHover(new java.awt.Color(128, 128, 131));
-    btnHome.setColorTextNormal(new java.awt.Color(128, 128, 131));
-    btnHome.setColorTextPressed(new java.awt.Color(128, 128, 131));
-    btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-    btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    btnHome.setIconTextGap(25);
-    btnHome.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnHomeActionPerformed(evt);
-      }
-    });
 
     labelMenu.setBackground(new java.awt.Color(239, 238, 244));
 
@@ -106,21 +90,20 @@ int x, y;
         .addContainerGap())
     );
 
-    btnUsuario.setBackground(new java.awt.Color(239, 238, 244));
-    btnUsuario.setForeground(new java.awt.Color(128, 128, 131));
-    btnUsuario.setText("Usuarios");
-    btnUsuario.setColorHover(new java.awt.Color(204, 204, 204));
-    btnUsuario.setColorNormal(new java.awt.Color(239, 238, 244));
-    btnUsuario.setColorPressed(new java.awt.Color(204, 204, 204));
-    btnUsuario.setColorTextHover(new java.awt.Color(128, 128, 131));
-    btnUsuario.setColorTextNormal(new java.awt.Color(128, 128, 131));
-    btnUsuario.setColorTextPressed(new java.awt.Color(128, 128, 131));
-    btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-    btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    btnUsuario.setIconTextGap(19);
-    btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+    btnHome.setForeground(new java.awt.Color(128, 128, 131));
+    btnHome.setText("Home");
+    btnHome.setColorHover(new java.awt.Color(204, 204, 204));
+    btnHome.setColorNormal(new java.awt.Color(204, 204, 204));
+    btnHome.setColorPressed(new java.awt.Color(204, 204, 204));
+    btnHome.setColorTextHover(new java.awt.Color(128, 128, 131));
+    btnHome.setColorTextNormal(new java.awt.Color(128, 128, 131));
+    btnHome.setColorTextPressed(new java.awt.Color(128, 128, 131));
+    btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+    btnHome.setIconTextGap(25);
+    btnHome.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnUsuarioActionPerformed(evt);
+        btnHomeActionPerformed(evt);
       }
     });
 
@@ -142,6 +125,24 @@ int x, y;
       }
     });
 
+    btnUsuario.setBackground(new java.awt.Color(239, 238, 244));
+    btnUsuario.setForeground(new java.awt.Color(128, 128, 131));
+    btnUsuario.setText("Usuarios");
+    btnUsuario.setColorHover(new java.awt.Color(204, 204, 204));
+    btnUsuario.setColorNormal(new java.awt.Color(239, 238, 244));
+    btnUsuario.setColorPressed(new java.awt.Color(204, 204, 204));
+    btnUsuario.setColorTextHover(new java.awt.Color(128, 128, 131));
+    btnUsuario.setColorTextNormal(new java.awt.Color(128, 128, 131));
+    btnUsuario.setColorTextPressed(new java.awt.Color(128, 128, 131));
+    btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+    btnUsuario.setIconTextGap(19);
+    btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnUsuarioActionPerformed(evt);
+      }
+    });
+
     btnFeedBack.setBackground(new java.awt.Color(239, 238, 244));
     btnFeedBack.setForeground(new java.awt.Color(128, 128, 131));
     btnFeedBack.setText("FeedBack");
@@ -160,7 +161,7 @@ int x, y;
     sideMenuLayout.setHorizontalGroup(
       sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-      .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+      .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
       .addComponent(btnOperacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addComponent(btnUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addComponent(btnFeedBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,7 +170,7 @@ int x, y;
       sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(sideMenuLayout.createSequentialGroup()
         .addComponent(labelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(12, 12, 12)
+        .addGap(18, 18, 18)
         .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(0, 0, 0)
         .addComponent(btnOperacao, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +178,7 @@ int x, y;
         .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(btnFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(313, Short.MAX_VALUE))
+        .addContainerGap(307, Short.MAX_VALUE))
     );
 
     header.setBackground(new java.awt.Color(38, 86, 186));
@@ -227,7 +228,7 @@ int x, y;
     Container.setLayout(ContainerLayout);
     ContainerLayout.setHorizontalGroup(
       ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2040, Short.MAX_VALUE)
+      .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2020, Short.MAX_VALUE)
     );
     ContainerLayout.setVerticalGroup(
       ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +282,7 @@ int x, y;
 
   private void btnOperacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperacaoActionPerformed
 
-    new PanelHelper(mainController,new Creat());
+    new PanelHelper(mainController,new OperacaoView());
   }//GEN-LAST:event_btnOperacaoActionPerformed
 
   private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -289,7 +290,7 @@ int x, y;
   }//GEN-LAST:event_btnHomeActionPerformed
 
   private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-   new PanelHelper(mainController,new usuarioView());
+    new PanelHelper(mainController,new UsuarioView());
   }//GEN-LAST:event_btnUsuarioActionPerformed
 
   /**
