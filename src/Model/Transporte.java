@@ -18,14 +18,14 @@ public class Transporte implements ITransporte {
     private String nomeMotorista;
     private String matriculaCamiao;
     private String matriculaAtrelado;
-    private int codigoTransporte;
+    private int transporteId;
 
-    public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int codigoTransporte) {
+    public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int transporteId) {
         this.operacao = operacao;
         this.nomeMotorista = nomeMotorista;
         this.matriculaCamiao = matriculaCamiao;
         this.matriculaAtrelado = matriculaAtrelado;
-        this.codigoTransporte = codigoTransporte;
+        this.transporteId = transporteId;
     }
 
     
@@ -74,13 +74,13 @@ public class Transporte implements ITransporte {
     }
 
     @Override
-    public int getCodigoTransporte() {
-        return codigoTransporte;
+    public int getTransporteId() {
+        return transporteId;
     }
 
     @Override
-    public void setCodigoTransporte(int codigoTransporte) {
-        this.codigoTransporte = codigoTransporte;
+    public void setTransporteId(int transporteId) {
+        this.transporteId = transporteId;
     }
     
 }

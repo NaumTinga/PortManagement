@@ -21,6 +21,7 @@ import java.util.Date;
  */
 public class Carga implements ICarga {
 
+    private int cargaId;
     private IOperacao operacao;
     private IContentor contentor;
     private IMercadoria mercadoria;
@@ -45,6 +46,20 @@ public class Carga implements ICarga {
         this.dataInicioCarga = dataInicioCarga;
         this.horaInicioCarga = horaInicioCarga;
         this.nota = nota;
+    }
+
+    public Carga(int cargaId) {
+        this.cargaId = cargaId;
+    }
+
+    @Override
+    public int getCargaId() {
+        return cargaId;
+    }
+
+    @Override
+    public void setCargaId(int cargaId) {
+        this.cargaId = cargaId;
     }
 
     public Carga() {

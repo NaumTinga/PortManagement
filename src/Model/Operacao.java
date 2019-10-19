@@ -15,15 +15,19 @@ import java.util.Date;
  * 
  * @author NAUM
  */
+
+
 public class Operacao implements IOperacao {
     
+    private int operacaoId;
     private String navio;
     private Date dataChegadaNavio;
     private Date dataInicioOperacao;
     private IProveniencia codigoProveniencia;
     private IEmpresaContacto codigoEmpresaContacto;
 
-    public Operacao(String navio, Date dataChegadaNavio, Date dataInicioOperacao, IProveniencia codigoProveniencia, IEmpresaContacto codigoEmpresaContacto) {
+    public Operacao(int operacaoId, String navio, Date dataChegadaNavio, Date dataInicioOperacao, IProveniencia codigoProveniencia, IEmpresaContacto codigoEmpresaContacto) {
+        this.operacaoId = operacaoId;
         this.navio = navio;
         this.dataChegadaNavio = dataChegadaNavio;
         this.dataInicioOperacao = dataInicioOperacao;
@@ -34,6 +38,15 @@ public class Operacao implements IOperacao {
     public Operacao() {
     }
 
+       @Override
+    public int getOperacaoId() {
+        return operacaoId;
+    }
+
+    @Override
+    public void setOperacaoId(int operacaoId) {
+        this.operacaoId = operacaoId;
+    }
     
     @Override
     public String getNavio() {

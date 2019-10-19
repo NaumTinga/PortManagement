@@ -16,7 +16,8 @@ import java.util.Date;
  * @author NAUM
  */
 public class Descarga implements IDescarga {
-    
+
+    private int descargaId;
     private int totalMercadoriaBoa;
     private int totalMercadoriaMa;
     private Date dataChegadaCarga;
@@ -24,7 +25,8 @@ public class Descarga implements IDescarga {
     private IArmazem armazem;
     private IOperacao operacao;
 
-    public Descarga(int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {
+    public Descarga(int descargaId, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {
+        this.descargaId = descargaId;
         this.totalMercadoriaBoa = totalMercadoriaBoa;
         this.totalMercadoriaMa = totalMercadoriaMa;
         this.dataChegadaCarga = dataChegadaCarga;
@@ -34,6 +36,16 @@ public class Descarga implements IDescarga {
     }
 
     public Descarga() {
+    }
+
+    @Override
+    public int getDescargaId() {
+        return descargaId;
+    }
+
+    @Override
+    public void setDescargaId(int descargaId) {
+        this.descargaId = descargaId;
     }
 
     @Override
@@ -95,6 +107,5 @@ public class Descarga implements IDescarga {
     public void setOperacao(IOperacao operacao) {
         this.operacao = operacao;
     }
-    
-    
+
 }

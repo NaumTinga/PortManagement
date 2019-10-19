@@ -13,7 +13,7 @@ public interface IMercadoria {
     
     IOperacao getOperacao();
     
-    int getCodigoMercadoria();
+    int getMercadoriaId();
     
     String getDescricao();
     
@@ -23,7 +23,7 @@ public interface IMercadoria {
     
     void setOperacao(IOperacao operacao);
     
-    void setCodigoMercadoria(int codigoMercadoria);
+    void setMercadoriaId(int mercadoriaId);
     
     void setDescricao(String descricao);
             

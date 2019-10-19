@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/portmanagement?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping class="Model.Armazem"/>
+    <mapping class="Model.Carga"/>
+    <mapping class="Model.Contentor"/>
+    <mapping class="Model.Descarga"/>
+    <mapping class="Model.EmpresaDeContacto"/>
+    <mapping class="Model.Endereco"/>
+    <mapping class="Model.Mercadoria"/>
+    <mapping class="Model.Operacao"/>
+    <mapping class="Model.Proveniencia"/>
+    <mapping class="Model.Transporte"/>
+  </session-factory>
+</hibernate-configuration>

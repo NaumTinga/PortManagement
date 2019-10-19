@@ -13,11 +13,11 @@ import IContrato.IProveniencia;
  */
 public class Proveniencia implements IProveniencia{
     
-    private int codigoProveniencia;
+    private int provenienciaId;
     private String proveniencia;
 
-    public Proveniencia(int codigoProveniencia, String proveniencia) {
-        this.codigoProveniencia = codigoProveniencia;
+    public Proveniencia(int provenienciaId, String proveniencia) {
+        this.provenienciaId = provenienciaId;
         this.proveniencia = proveniencia;
     }
 
@@ -27,13 +27,13 @@ public class Proveniencia implements IProveniencia{
     
 
     @Override
-    public int getCodigoProveniencia() {
-        return codigoProveniencia;
+    public int getProvenienciaId() {
+        return provenienciaId;
     }
 
     @Override
-    public void setCodigoProveniencia(int codigoProveniencia) {
-        this.codigoProveniencia = codigoProveniencia;
+    public void setProvenienciaId(int provenienciaId) {
+        this.provenienciaId = provenienciaId;
     }
 
     @Override

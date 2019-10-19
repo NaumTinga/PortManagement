@@ -13,6 +13,8 @@ import java.util.Date;
  */
 public interface IOperacao {
     
+    int getOperacaoId();
+    
     String getNavio();
     
     Date getDataChegadaNavio();
@@ -22,6 +24,8 @@ public interface IOperacao {
     IProveniencia getCodigoProveniencia();
     
     IEmpresaContacto getCodigoEmpresaContacto();
+    
+    void setOperacaoId(int operacaoId);
     
     void setNavio(String navio);
     

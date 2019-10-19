@@ -13,6 +13,8 @@ import java.util.Date;
  */
 public interface IDescarga {
 
+    int getDescargaId();
+    
     int getTotalMercadoriaBoa();
 
     void setTotalMercadoriaBoa(int totalMercadoriaBoa);
@@ -20,6 +22,8 @@ public interface IDescarga {
     int getTotalMercadoriaMa();
 
     void setTotalMercadoriaMa(int totalMercadoriaMa);
+    
+    void setDescargaId(int descargaId);
 
     Date getDataChegadaCarga();
 

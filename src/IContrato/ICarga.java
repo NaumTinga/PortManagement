@@ -14,6 +14,10 @@ import java.util.Date;
  */
 public interface ICarga {
 
+    int getCargaId();
+    
+    void setCargaId(int cargaId);
+    
     IOperacao getOperacao();
 
     void setOperacao(IOperacao operacao);

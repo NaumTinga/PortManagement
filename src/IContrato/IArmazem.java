@@ -13,13 +13,13 @@ public interface IArmazem {
     
     IOperacao getOperacao();
     
-    int getCodigoArmazem();
+    int getArmazemId();
     
     String getDescricao();
     
     void setOperacao(IOperacao operacao);
     
-    void setCodigoArmazem(int codigoArmazem);
+    void setArmazemId(int ArmazemId);
     
     void setDescricao(String descricao);
 }

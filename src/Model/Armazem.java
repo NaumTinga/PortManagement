@@ -7,20 +7,36 @@ package Model;
 
 import IContrato.IArmazem;
 import IContrato.IOperacao;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
+@Entity
+@Table(name = "Armazem")
 public class Armazem implements IArmazem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacao")
     private IOperacao operacao;
-    private int codigoArmazem;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int armazemId;
+    
+    @Column(name = "descricao")
     private String descricao;
 
-    public Armazem(IOperacao operacao, int codigoArmazem, String descricao) {
+    public Armazem(IOperacao operacao, int armazemId, String descricao) {
         this.operacao = operacao;
-        this.codigoArmazem = codigoArmazem;
+        this.armazemId = armazemId;
         this.descricao = descricao;
     }
 
@@ -38,13 +54,13 @@ public class Armazem implements IArmazem {
     }
 
     @Override
-    public int getCodigoArmazem() {
-        return codigoArmazem;
+    public int getArmazemId() {
+        return armazemId;
     }
 
     @Override
-    public void setCodigoArmazem(int codigoArmazem) {
-        this.codigoArmazem = codigoArmazem;
+    public void setArmazemId(int armazemId) {
+        this.armazemId = armazemId;
     }
 
     @Override

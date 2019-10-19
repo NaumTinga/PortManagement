@@ -5,7 +5,10 @@
  */
 package ptmanagement;
 
+import DAO.HibernateUtil;
+import Model.EmpresaDeContacto;
 import View.login.Login;
+import org.hibernate.Session;
 
 /**
  *
@@ -17,7 +20,12 @@ public class PTManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      new Login().setVisible(true);
+     // new Login().setVisible(true);
+        EmpresaDeContacto empresa = new EmpresaDeContacto();
+         Session session = HibernateUtil.getSessionFactory().openSession();
+      
+        empresa.setCodigoEmpresaContacto(1);
+        empresa.setNome("Saiba Mais MZ");
     }
     
 }
