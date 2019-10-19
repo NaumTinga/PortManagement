@@ -6,16 +6,22 @@
 package Model;
 
 import IContrato.IProveniencia;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class Proveniencia implements IProveniencia{
+
+@Entity
+@Table(name = "Proveniencia")
+public class Proveniencia implements IProveniencia, Serializable{
     
     
     @Id

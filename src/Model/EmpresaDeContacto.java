@@ -6,26 +6,32 @@
 package Model;
 
 import IContrato.IEmpresaContacto;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class EmpresaDeContacto implements IEmpresaContacto {
+
+@Entity
+@Table(name = "EmpresaDeContacto")
+public class EmpresaDeContacto implements IEmpresaContacto, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "empresaConatctoId")
-    private int empresaContactoId;
+    private long empresaContactoId;
 
     @Column(name = "nome")
     private String nome;
 
-    public EmpresaDeContacto(int empresaContactoId, String nome) {
+    public EmpresaDeContacto(long empresaContactoId, String nome) {
         this.empresaContactoId = empresaContactoId;
         this.nome = nome;
     }
@@ -34,12 +40,12 @@ public class EmpresaDeContacto implements IEmpresaContacto {
     }
 
     @Override
-    public int getEmpresaContactoId() {
+    public long getEmpresaContactoId() {
         return empresaContactoId;
     }
 
     @Override
-    public void setEmpresaContactoId(int empresaContactoId) {
+    public void setEmpresaContactoId(long empresaContactoId) {
         this.empresaContactoId = empresaContactoId;
     }
 

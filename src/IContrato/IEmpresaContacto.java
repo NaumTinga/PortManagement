@@ -11,11 +11,11 @@ package IContrato;
  */
 public interface IEmpresaContacto {
     
-    int getEmpresaContactoId();
+    long getEmpresaContactoId();
     
     String getNome();
     
-    void setEmpresaContactoId(int empresaContactoId);
+    void setEmpresaContactoId(long empresaContactoId);
     
     void setNome(String nome);
 }

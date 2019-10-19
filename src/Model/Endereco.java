@@ -7,17 +7,22 @@ package Model;
 
 import IContrato.IEndereco;
 import IContrato.IOperacao;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * s
  *
  * @author NAUM
  */
-public class Endereco implements IEndereco {
+@Entity
+@Table(name = "Endereco")
+public class Endereco implements IEndereco, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

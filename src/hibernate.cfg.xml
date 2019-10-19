@@ -6,6 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/portmanagement?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="Model.Armazem"/>
     <mapping class="Model.Carga"/>
     <mapping class="Model.Contentor"/>

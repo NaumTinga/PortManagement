@@ -12,46 +12,61 @@ import IContrato.IEndereco;
 import IContrato.IMercadoria;
 import IContrato.IOperacao;
 import IContrato.ITransporte;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapKeyTemporal;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author NAUM
  */
-public class Carga implements ICarga {
+
+@Entity
+@Table(name = "Carga")
+public class Carga implements ICarga, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cargaId")
     private int cargaId;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "operacao")
     private IOperacao operacao;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "contentor")
     private IContentor contentor;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "mercadoria")
     private IMercadoria mercadoria;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "transporte")
     private ITransporte transporte;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "endereco")
     private IEndereco endereco;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+     @Column(name = "amrmazem")
     private IArmazem armazem;
     
     @Column(name = "totalMercadoriaBoa")
@@ -65,7 +80,8 @@ public class Carga implements ICarga {
     private Date dataInicioCarga;
     
     @Column(name = "totalMercadoria")
-    @Temporal(javax.persistence.TemporalType.TIME)
+    //@Temporal(javax.persistence.TemporalType.TIME)
+    @MapKeyTemporal(value=TemporalType.TIME)
     private Time horaInicioCarga;
     
     @Column(name = "nota")

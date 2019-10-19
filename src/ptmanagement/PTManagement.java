@@ -5,6 +5,7 @@
  */
 package ptmanagement;
 
+import Controller.EmpresaContactoController;
 import DAO.HibernateUtil;
 import Model.EmpresaDeContacto;
 import View.login.Login;
@@ -21,11 +22,14 @@ public class PTManagement {
      */
     public static void main(String[] args) {
      // new Login().setVisible(true);
+        EmpresaContactoController empresaController = new EmpresaContactoController();
         EmpresaDeContacto empresa = new EmpresaDeContacto();
-         Session session = HibernateUtil.getSessionFactory().openSession();
+         
       
-        empresa.setCodigoEmpresaContacto(1);
+        //empresa.setEmpresaContactoId(1);
         empresa.setNome("Saiba Mais MZ");
+        
+        empresaController.save(empresa);
     }
     
 }

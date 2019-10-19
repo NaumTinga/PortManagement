@@ -7,16 +7,22 @@ package Model;
 
 import IContrato.IContentor;
 import IContrato.IOperacao;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class Contentor implements IContentor {
+
+@Entity
+@Table(name = "Contentor")
+public class Contentor implements IContentor, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

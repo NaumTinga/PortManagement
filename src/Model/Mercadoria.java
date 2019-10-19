@@ -7,16 +7,22 @@ package Model;
 
 import IContrato.IMercadoria;
 import IContrato.IOperacao;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class Mercadoria implements IMercadoria {
+
+@Entity
+@Table(name = "Mercadoria")
+public class Mercadoria implements IMercadoria, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
