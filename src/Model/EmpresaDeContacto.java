@@ -6,18 +6,27 @@
 package Model;
 
 import IContrato.IEmpresaContacto;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author NAUM
  */
 public class EmpresaDeContacto implements IEmpresaContacto {
-    
-    private int codigoEmpresaContacto;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "empresaConatctoId")
+    private int empresaContactoId;
+
+    @Column(name = "nome")
     private String nome;
 
-    public EmpresaDeContacto(int codigoEmpresaContacto, String nome) {
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
+    public EmpresaDeContacto(int empresaContactoId, String nome) {
+        this.empresaContactoId = empresaContactoId;
         this.nome = nome;
     }
 
@@ -25,13 +34,13 @@ public class EmpresaDeContacto implements IEmpresaContacto {
     }
 
     @Override
-    public int getCodigoEmpresaContacto() {
-        return codigoEmpresaContacto;
+    public int getEmpresaContactoId() {
+        return empresaContactoId;
     }
 
     @Override
-    public void setCodigoEmpresaContacto(int codigoEmpresaContacto) {
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
+    public void setEmpresaContactoId(int empresaContactoId) {
+        this.empresaContactoId = empresaContactoId;
     }
 
     @Override
@@ -43,6 +52,5 @@ public class EmpresaDeContacto implements IEmpresaContacto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
 }

@@ -9,36 +9,54 @@ import IContrato.IEmpresaContacto;
 import IContrato.IOperacao;
 import IContrato.IProveniencia;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
- *Classe Principal Operacao 
- * 
+ * Classe Principal Operacao
+ *
  * @author NAUM
  */
-
-
 public class Operacao implements IOperacao {
-    
-    private int operacaoId;
-    private String navio;
-    private Date dataChegadaNavio;
-    private Date dataInicioOperacao;
-    private IProveniencia codigoProveniencia;
-    private IEmpresaContacto codigoEmpresaContacto;
 
-    public Operacao(int operacaoId, String navio, Date dataChegadaNavio, Date dataInicioOperacao, IProveniencia codigoProveniencia, IEmpresaContacto codigoEmpresaContacto) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacaoId")
+    private int operacaoId;
+
+    @Column(name = "navio")
+    private String navio;
+
+    @Column(name = "dataChegadaNavio")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataChegadaNavio;
+
+    @Column(name = "dataInicioOperacao")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataInicioOperacao;
+
+    @Column(name = "proveniencia")
+    private IProveniencia proveniencia;
+
+    @Column(name = "empresaContacto")
+    private IEmpresaContacto empresaContacto;
+
+    public Operacao(int operacaoId, String navio, Date dataChegadaNavio, Date dataInicioOperacao, IProveniencia proveniencia, IEmpresaContacto empresaContacto) {
         this.operacaoId = operacaoId;
         this.navio = navio;
         this.dataChegadaNavio = dataChegadaNavio;
         this.dataInicioOperacao = dataInicioOperacao;
-        this.codigoProveniencia = codigoProveniencia;
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
+        this.proveniencia = proveniencia;
+        this.empresaContacto = empresaContacto;
     }
 
     public Operacao() {
     }
 
-       @Override
+    @Override
     public int getOperacaoId() {
         return operacaoId;
     }
@@ -47,7 +65,7 @@ public class Operacao implements IOperacao {
     public void setOperacaoId(int operacaoId) {
         this.operacaoId = operacaoId;
     }
-    
+
     @Override
     public String getNavio() {
         return navio;
@@ -79,23 +97,23 @@ public class Operacao implements IOperacao {
     }
 
     @Override
-    public IProveniencia getCodigoProveniencia() {
-        return codigoProveniencia;
+    public IProveniencia getProveniencia() {
+        return proveniencia;
     }
 
     @Override
-    public void setCodigoProveniencia(IProveniencia codigoProveniencia) {
-        this.codigoProveniencia = codigoProveniencia;
+    public void setProveniencia(IProveniencia proveniencia) {
+        this.proveniencia = proveniencia;
     }
 
     @Override
-    public IEmpresaContacto getCodigoEmpresaContacto() {
-        return codigoEmpresaContacto;
+    public IEmpresaContacto getEmpresaContacto() {
+        return empresaContacto;
     }
 
     @Override
-    public void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto) {
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
+    public void setEmpresaContacto(IEmpresaContacto empresaContacto) {
+        this.empresaContacto = empresaContacto;
     }
- 
+
 }

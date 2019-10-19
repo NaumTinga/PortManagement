@@ -7,6 +7,10 @@ package Model;
 
 import IContrato.IOperacao;
 import IContrato.ITransporte;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,11 +18,27 @@ import IContrato.ITransporte;
  */
 public class Transporte implements ITransporte {
     
-    private IOperacao operacao;
-    private String nomeMotorista;
-    private String matriculaCamiao;
-    private String matriculaAtrelado;
+        
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacaoId")
     private int transporteId;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacao")
+    private IOperacao operacao;
+    
+    @Column(name = "nomeMotorista")
+    private String nomeMotorista;
+    
+    @Column(name = "matriculaCamiao")
+    private String matriculaCamiao;
+    
+    @Column(name = "matriculaAtrelado")
+    private String matriculaAtrelado;
+    
+
 
     public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int transporteId) {
         this.operacao = operacao;

@@ -21,9 +21,9 @@ public interface IOperacao {
     
     Date getDataInicioOperacao();
     
-    IProveniencia getCodigoProveniencia();
+    IProveniencia getProveniencia();
     
-    IEmpresaContacto getCodigoEmpresaContacto();
+    IEmpresaContacto getEmpresaContacto();
     
     void setOperacaoId(int operacaoId);
     
@@ -33,8 +33,8 @@ public interface IOperacao {
     
     void setDataInicioOperacao(Date dataInicioOperacao);
     
-    void setCodigoProveniencia(IProveniencia codigoProveniencia);
+    void setProveniencia(IProveniencia proveniencia);
     
-    void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto);
+    void setEmpresaContacto(IEmpresaContacto empresaContacto);
     
 }

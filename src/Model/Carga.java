@@ -14,6 +14,11 @@ import IContrato.IOperacao;
 import IContrato.ITransporte;
 import java.sql.Time;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -21,17 +26,49 @@ import java.util.Date;
  */
 public class Carga implements ICarga {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int cargaId;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IOperacao operacao;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IContentor contentor;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IMercadoria mercadoria;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private ITransporte transporte;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IEndereco endereco;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IArmazem armazem;
+    
+    @Column(name = "totalMercadoriaBoa")
     private int totalMercadoriaBoa;
+    
+    @Column(name = "totalMercadoriaMa")
     private int totalMercadoriaMa;
+    
+    @Column(name = "dataInicioCarga")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicioCarga;
+    
+    @Column(name = "totalMercadoria")
+    @Temporal(javax.persistence.TemporalType.TIME)
     private Time horaInicioCarga;
+    
+    @Column(name = "nota")
     private String nota;
 
     public Carga(IOperacao operacao, IContentor contentor, IMercadoria mercadoria, ITransporte transporte, IEndereco endereco, IArmazem armazem, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataInicioCarga, Time horaInicioCarga, String nota) {

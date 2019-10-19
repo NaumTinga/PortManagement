@@ -10,6 +10,11 @@ import IContrato.ICarga;
 import IContrato.IDescarga;
 import IContrato.IOperacao;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -17,12 +22,31 @@ import java.util.Date;
  */
 public class Descarga implements IDescarga {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "descargaId")
     private int descargaId;
+
+    @Column(name = "totalMercadoriaBoa")
     private int totalMercadoriaBoa;
+
+    @Column(name = "totalMercadoriaMa")
     private int totalMercadoriaMa;
+
+    @Column(name = "dataChegadaCarga")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataChegadaCarga;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private ICarga carga;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IArmazem armazem;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IOperacao operacao;
 
     public Descarga(int descargaId, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {

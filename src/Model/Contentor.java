@@ -7,6 +7,10 @@ package Model;
 
 import IContrato.IContentor;
 import IContrato.IOperacao;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,13 +18,20 @@ import IContrato.IOperacao;
  */
 public class Contentor implements IContentor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IOperacao operacao;
-    private int codigoContentor;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int contentorId;
+    
+    @Column(name = "nrContentor")
     private int nrContentor;
 
-    public Contentor(IOperacao operacao, int codigoContentor, int nrContentor) {
+    public Contentor(IOperacao operacao, int contentorId, int nrContentor) {
         this.operacao = operacao;
-        this.codigoContentor = codigoContentor;
+        this.contentorId = contentorId;
         this.nrContentor = nrContentor;
     }
 
@@ -38,13 +49,13 @@ public class Contentor implements IContentor {
     }
 
     @Override
-    public int getCodigoContentor() {
-        return codigoContentor;
+    public int getContentorId() {
+        return contentorId;
     }
 
     @Override
-    public void setCodigoContentor(int codigoContentor) {
-        this.codigoContentor = codigoContentor;
+    public void setContentorId(int contentorId) {
+        this.contentorId = contentorId;
     }
 
     @Override

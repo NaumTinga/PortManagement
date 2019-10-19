@@ -29,6 +29,7 @@ public class Armazem implements IArmazem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "armazemId")
     private int armazemId;
     
     @Column(name = "descricao")

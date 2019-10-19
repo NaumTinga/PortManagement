@@ -6,6 +6,10 @@
 package Model;
 
 import IContrato.IProveniencia;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -13,7 +17,13 @@ import IContrato.IProveniencia;
  */
 public class Proveniencia implements IProveniencia{
     
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "provenienciaId")
     private int provenienciaId;
+    
+    @Column(name = "proveniencia")
     private String proveniencia;
 
     public Proveniencia(int provenienciaId, String proveniencia) {

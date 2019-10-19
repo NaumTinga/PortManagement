@@ -13,13 +13,13 @@ public interface IContentor {
 
     IOperacao getOperacao();
 
-    int getCodigoContentor();
+    int getContentorId();
 
     int getNrContentor();
 
     void setOperacao(IOperacao operacao);
 
-    void setCodigoContentor(int codigoContentor);
+    void setContentorId(int contentorId);
 
     void setNrContentor(int nrContentor);
 }
