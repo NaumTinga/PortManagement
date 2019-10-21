@@ -11,13 +11,13 @@ package IContrato;
  */
 public interface IEndereco {
 
-    int getCodigoAdress();
+    int getEnderecoId();
 
     IOperacao getOperacao();
 
     String getEndereco();
 
-    void setCodigoAdress(int codigoAdress);
+    void setEnderecoId(int enderecoId);
 
     void setOperacao(IOperacao operacao);
 

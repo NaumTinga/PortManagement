@@ -7,19 +7,38 @@ package Model;
 
 import IContrato.IEndereco;
 import IContrato.IOperacao;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
- *s
+ * s
+ *
  * @author NAUM
  */
-public class Endereco implements IEndereco  {
-    
-    private int codigoAdress;
+@Entity
+@Table(name = "Endereco")
+public class Endereco implements IEndereco, Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "enderecoId")
+    private int enderecoId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacao")
     private IOperacao operacao;
+
+    @Column(name = "endereco")
     private String endereco;
 
-    public Endereco(int codigoAdress, IOperacao operacao, String endereco) {
-        this.codigoAdress = codigoAdress;
+    public Endereco(int enderecoId, IOperacao operacao, String endereco) {
+        this.enderecoId = enderecoId;
         this.operacao = operacao;
         this.endereco = endereco;
     }
@@ -27,15 +46,14 @@ public class Endereco implements IEndereco  {
     public Endereco() {
     }
 
-    
     @Override
-    public int getCodigoAdress() {
-        return codigoAdress;
+    public int getEnderecoId() {
+        return enderecoId;
     }
 
     @Override
-    public void setCodigoAdress(int codigoAdress) {
-        this.codigoAdress = codigoAdress;
+    public void setEnderecoId(int enderecoId) {
+        this.enderecoId = enderecoId;
     }
 
     @Override
@@ -57,7 +75,5 @@ public class Endereco implements IEndereco  {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    
+
 }

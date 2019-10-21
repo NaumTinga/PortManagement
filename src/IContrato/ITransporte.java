@@ -19,7 +19,7 @@ public interface ITransporte {
 
     String getMatriculaAtrelado();
 
-    int getCodigoTransporte();
+    int getTransporteId();
 
     void setOperacao(IOperacao operacao);
 
@@ -29,5 +29,5 @@ public interface ITransporte {
 
     void setMatriculaAtrelado(String matriculaAtrelado);
 
-    void setCodigoTransporte(int codigoTransporte);
+    void setTransporteId(int transporteId);
 }

@@ -5,7 +5,11 @@
  */
 package ptmanagement;
 
-import View.login.Login;
+import Controller.EmpresaContactoController;
+import IContrato.IEmpresaContacto;
+import Model.EmpresaDeContacto;
+;
+
 
 /**
  *
@@ -17,7 +21,12 @@ public class PTManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      new Login().setVisible(true);
+
+      EmpresaContactoController empresaController = new EmpresaContactoController();
+      EmpresaDeContacto empresa =  new EmpresaDeContacto();
+      empresa.setNome("Saiba Mais MZ");
+      empresaController.save(empresa);
+
     }
     
 }

@@ -5,44 +5,57 @@
  */
 package Model;
 
+
 import IContrato.IEmpresaContacto;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class EmpresaDeContacto implements IEmpresaContacto {
-    
-    private int codigoEmpresaContacto;
+
+@Entity
+@Table(name = "empresaDeContacto")
+public class EmpresaDeContacto implements Serializable,IEmpresaContacto
+{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int empresaContactoId;
+
     private String nome;
 
-    public EmpresaDeContacto(int codigoEmpresaContacto, String nome) {
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
-        this.nome = nome;
-    }
 
-    public EmpresaDeContacto() {
+    @Override
+    public long getEmpresaContactoId() 
+    {
+        return empresaContactoId;
     }
 
     @Override
-    public int getCodigoEmpresaContacto() {
-        return codigoEmpresaContacto;
+    public void setEmpresaContactoId(int empresaContactoId) 
+    {
+        this.empresaContactoId = empresaContactoId;
     }
 
     @Override
-    public void setCodigoEmpresaContacto(int codigoEmpresaContacto) {
-        this.codigoEmpresaContacto = codigoEmpresaContacto;
-    }
-
-    @Override
-    public String getNome() {
+    public String getNome() 
+    {
         return nome;
     }
 
-    @Override
-    public void setNome(String nome) {
+  /**
+   *
+   * @param nome
+   */
+  @Override
+    public void setNome(String nome) 
+    {
         this.nome = nome;
     }
-    
-    
+
 }

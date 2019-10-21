@@ -6,18 +6,34 @@
 package Model;
 
 import IContrato.IProveniencia;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class Proveniencia implements IProveniencia{
+
+@Entity
+@Table(name = "Proveniencia")
+public class Proveniencia implements IProveniencia, Serializable{
     
-    private int codigoProveniencia;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "provenienciaId")
+    private int provenienciaId;
+    
+    @Column(name = "proveniencia")
     private String proveniencia;
 
-    public Proveniencia(int codigoProveniencia, String proveniencia) {
-        this.codigoProveniencia = codigoProveniencia;
+    public Proveniencia(int provenienciaId, String proveniencia) {
+        this.provenienciaId = provenienciaId;
         this.proveniencia = proveniencia;
     }
 
@@ -27,13 +43,13 @@ public class Proveniencia implements IProveniencia{
     
 
     @Override
-    public int getCodigoProveniencia() {
-        return codigoProveniencia;
+    public int getProvenienciaId() {
+        return provenienciaId;
     }
 
     @Override
-    public void setCodigoProveniencia(int codigoProveniencia) {
-        this.codigoProveniencia = codigoProveniencia;
+    public void setProvenienciaId(int provenienciaId) {
+        this.provenienciaId = provenienciaId;
     }
 
     @Override

@@ -9,22 +9,54 @@ import IContrato.IArmazem;
 import IContrato.ICarga;
 import IContrato.IDescarga;
 import IContrato.IOperacao;
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author NAUM
  */
-public class Descarga implements IDescarga {
-    
+
+@Entity
+@Table(name = "Descarga")
+public class Descarga implements IDescarga, Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "descargaId")
+    private int descargaId;
+
+    @Column(name = "totalMercadoriaBoa")
     private int totalMercadoriaBoa;
+
+    @Column(name = "totalMercadoriaMa")
     private int totalMercadoriaMa;
+
+    @Column(name = "dataChegadaCarga")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataChegadaCarga;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private ICarga carga;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IArmazem armazem;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private IOperacao operacao;
 
-    public Descarga(int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {
+    public Descarga(int descargaId, int totalMercadoriaBoa, int totalMercadoriaMa, Date dataChegadaCarga, ICarga carga, IArmazem armazem, IOperacao operacao) {
+        this.descargaId = descargaId;
         this.totalMercadoriaBoa = totalMercadoriaBoa;
         this.totalMercadoriaMa = totalMercadoriaMa;
         this.dataChegadaCarga = dataChegadaCarga;
@@ -34,6 +66,16 @@ public class Descarga implements IDescarga {
     }
 
     public Descarga() {
+    }
+
+    @Override
+    public int getDescargaId() {
+        return descargaId;
+    }
+
+    @Override
+    public void setDescargaId(int descargaId) {
+        this.descargaId = descargaId;
     }
 
     @Override
@@ -95,6 +137,5 @@ public class Descarga implements IDescarga {
     public void setOperacao(IOperacao operacao) {
         this.operacao = operacao;
     }
-    
-    
+
 }

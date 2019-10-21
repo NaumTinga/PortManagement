@@ -13,15 +13,19 @@ import java.util.Date;
  */
 public interface IOperacao {
     
+    int getOperacaoId();
+    
     String getNavio();
     
     Date getDataChegadaNavio();
     
     Date getDataInicioOperacao();
     
-    IProveniencia getCodigoProveniencia();
+    IProveniencia getProveniencia();
     
-    IEmpresaContacto getCodigoEmpresaContacto();
+    IEmpresaContacto getEmpresaContacto();
+    
+    void setOperacaoId(int operacaoId);
     
     void setNavio(String navio);
     
@@ -29,8 +33,8 @@ public interface IOperacao {
     
     void setDataInicioOperacao(Date dataInicioOperacao);
     
-    void setCodigoProveniencia(IProveniencia codigoProveniencia);
+    void setProveniencia(IProveniencia proveniencia);
     
-    void setCodigoEmpresaContacto(IEmpresaContacto codigoEmpresaContacto);
+    void setEmpresaContacto(IEmpresaContacto empresaContacto);
     
 }

@@ -9,13 +9,14 @@ package IContrato;
  *
  * @author NAUM
  */
-public interface IEmpresaContacto {
-    
-    int getCodigoEmpresaContacto();
-    
-    String getNome();
-    
-    void setCodigoEmpresaContacto(int codigoEmpresaContacto);
-    
-    void setNome(String nome);
+public interface IEmpresaContacto 
+{
+
+  long getEmpresaContactoId();
+
+  String getNome();
+
+  void setEmpresaContactoId(int empresaContactoId);
+
+  void setNome(String nome);
 }

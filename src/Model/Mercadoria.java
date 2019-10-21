@@ -7,22 +7,45 @@ package Model;
 
 import IContrato.IMercadoria;
 import IContrato.IOperacao;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author NAUM
  */
-public class Mercadoria implements IMercadoria {
 
+@Entity
+@Table(name = "Mercadoria")
+public class Mercadoria implements IMercadoria, Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacao")
     private IOperacao operacao;
-    private int codigoMercadoria;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "mercadoriaId")
+    private int mercadoriaId;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "totalMercadoria")
     private int totalMercadoria;
+
+    @Column(name = "totalEstimativaPerdas")
     private int totalEstimativaPerdas;
 
-    public Mercadoria(IOperacao operacao, int codigoMercadoria, String descricao, int totalMercadoria, int totalEstimativaPerdas) {
+    public Mercadoria(IOperacao operacao, int mercadoria, String descricao, int totalMercadoria, int totalEstimativaPerdas) {
         this.operacao = operacao;
-        this.codigoMercadoria = codigoMercadoria;
+        this.mercadoriaId = mercadoria;
         this.descricao = descricao;
         this.totalMercadoria = totalMercadoria;
         this.totalEstimativaPerdas = totalEstimativaPerdas;
@@ -42,13 +65,13 @@ public class Mercadoria implements IMercadoria {
     }
 
     @Override
-    public int getCodigoMercadoria() {
-        return codigoMercadoria;
+    public int getMercadoriaId() {
+        return mercadoriaId;
     }
 
     @Override
-    public void setCodigoMercadoria(int codigoMercadoria) {
-        this.codigoMercadoria = codigoMercadoria;
+    public void setMercadoriaId(int mercadoriaId) {
+        this.mercadoriaId = mercadoriaId;
     }
 
     @Override

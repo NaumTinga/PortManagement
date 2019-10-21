@@ -7,6 +7,10 @@ package Model;
 
 import IContrato.IOperacao;
 import IContrato.ITransporte;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,18 +18,34 @@ import IContrato.ITransporte;
  */
 public class Transporte implements ITransporte {
     
+        
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacaoId")
+    private int transporteId;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "operacao")
     private IOperacao operacao;
+    
+    @Column(name = "nomeMotorista")
     private String nomeMotorista;
+    
+    @Column(name = "matriculaCamiao")
     private String matriculaCamiao;
+    
+    @Column(name = "matriculaAtrelado")
     private String matriculaAtrelado;
-    private int codigoTransporte;
+    
 
-    public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int codigoTransporte) {
+
+    public Transporte(IOperacao operacao, String nomeMotorista, String matriculaCamiao, String matriculaAtrelado, int transporteId) {
         this.operacao = operacao;
         this.nomeMotorista = nomeMotorista;
         this.matriculaCamiao = matriculaCamiao;
         this.matriculaAtrelado = matriculaAtrelado;
-        this.codigoTransporte = codigoTransporte;
+        this.transporteId = transporteId;
     }
 
     
@@ -74,13 +94,13 @@ public class Transporte implements ITransporte {
     }
 
     @Override
-    public int getCodigoTransporte() {
-        return codigoTransporte;
+    public int getTransporteId() {
+        return transporteId;
     }
 
     @Override
-    public void setCodigoTransporte(int codigoTransporte) {
-        this.codigoTransporte = codigoTransporte;
+    public void setTransporteId(int transporteId) {
+        this.transporteId = transporteId;
     }
     
 }
