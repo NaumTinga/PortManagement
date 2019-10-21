@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - DaoConfiguration",
+      "request": "launch",
+      "mainClass": "DAO.DaoConfiguration"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,41 +22,41 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "Contentor")
+@Table(name = "contentor")
 public class Contentor implements IContentor, Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private IOperacao operacao;
+    private long contentorId;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int contentorId;
+    @Column(name = "numeroContentor")
+    private int numeroContentor;
     
-    @Column(name = "nrContentor")
-    private int nrContentor;
+//    @ManyToOne
+//    private IOperacao operacao;
 
-    public Contentor(IOperacao operacao, int contentorId, int nrContentor) {
-        this.operacao = operacao;
-        this.contentorId = contentorId;
-        this.nrContentor = nrContentor;
-    }
+//    public Contentor(int contentorId, int numeroContentor) 
+//    {
+//        super();
+//        this.contentorId = contentorId;
+//        this.numeroContentor = numeroContentor;
+//    }
 
-    public Contentor() {
-    }
+
+//    @Override
+//    public IOperacao getOperacao() {
+//        return operacao;
+//    }
+
+//    @Override
+//    public void setOperacao(IOperacao operacao) {
+//        this.operacao = operacao;
+//    }
 
     @Override
-    public IOperacao getOperacao() {
-        return operacao;
-    }
-
-    @Override
-    public void setOperacao(IOperacao operacao) {
-        this.operacao = operacao;
-    }
-
-    @Override
-    public int getContentorId() {
+    public long getContentorId() 
+    {
         return contentorId;
     }
 
@@ -65,13 +66,15 @@ public class Contentor implements IContentor, Serializable {
     }
 
     @Override
-    public int getNrContentor() {
-        return nrContentor;
+    public int getNumeroContentor()
+    {
+      return this.numeroContentor;
     }
 
     @Override
-    public void setNrContentor(int nrContentor) {
-        this.nrContentor = nrContentor;
+    public void setNumeroContentor(int numeroContentor) 
+    {
+      this.numeroContentor = numeroContentor;
     }
 
 }

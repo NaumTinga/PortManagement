@@ -6,59 +6,86 @@
 package Controller;
 
 import DAO.EmpresaContactoDAO;
-import IContrato.IEmpresaContacto;
-import IContrato.IOperacao;
-import java.util.List;
+import IContrato.IEmpresaContactoDAO;
+import Model.EmpresaDeContacto;
 
 /**
  *
- * @author NAUM
+ * @author dalto
  */
-public class EmpresaContactoController {
- 
-    private static EmpresaContactoDAO empresaContacoDao;
- 
-    public EmpresaContactoController() {
-        empresaContacoDao = new EmpresaContactoDAO();
-    }
- 
-    public void save(IEmpresaContacto empresaContacto) {
-        empresaContacoDao.openCurrentSessionwithTransaction();
-        empresaContacoDao.save(empresaContacto);
-        empresaContacoDao.closeCurrentSessionwithTransaction();
-    }
+public class EmpresaContactoController implements IEmpresaContactoDAO 
+{
 
-     public void update(IEmpresaContacto empresaContacto) {
-        empresaContacoDao.openCurrentSessionwithTransaction();
-        empresaContacoDao.update(empresaContacto);
-        empresaContacoDao.closeCurrentSessionwithTransaction();
-    }
+  private final EmpresaContactoDAO empresaContactoDAO;
+  
+  
+  public EmpresaContactoController()
+  {
+    this.empresaContactoDAO = new EmpresaContactoDAO();
+  }
+  
+
+  @Override
+  public void save(EmpresaDeContacto object) 
+  {
+    empresaContactoDAO.save(object);
+  }
+
+  @Override
+  public void update(EmpresaDeContacto object) 
+  {
+     empresaContactoDAO.update(object);
+  }
+
+  @Override
+  public EmpresaDeContacto get(Integer Id) 
+  {
+     return empresaContactoDAO.get(Id);
+  }
  
-    public IEmpresaContacto findById(int id) {
-        empresaContacoDao.openCurrentSession();
-        IEmpresaContacto empresaContacto = empresaContacoDao.findById(id);
-        empresaContacoDao.closeCurrentSession();
-        return empresaContacto;
-    }
- 
-    public void delete(IEmpresaContacto empresaContacto) {
-        empresaContacoDao.openCurrentSessionwithTransaction();
-       // IOperacao operacao = operacaoDao.findById(id);
-        empresaContacoDao.delete(empresaContacto);
-        empresaContacoDao.closeCurrentSessionwithTransaction();
-    }
- 
-    public List<IEmpresaContacto> findAll() {
-        empresaContacoDao.openCurrentSession();
-        List<IEmpresaContacto> empresaContacto = empresaContacoDao.findAll();
-        empresaContacoDao.closeCurrentSession();
-        return empresaContacto;
-    }
- 
-    public void deleteAll() {
-        empresaContacoDao.openCurrentSessionwithTransaction();
-        empresaContacoDao.deleteAll();
-        empresaContacoDao.closeCurrentSessionwithTransaction();
-    }
+//    private static EmpresaContactoDAO empresaContacoDao;
+// 
+//    public EmpresaContactoController() {
+//        empresaContacoDao = new EmpresaContactoDAO();
+//    }
+// 
+//    public void save(IEmpresaContacto empresaContacto) {
+//        empresaContacoDao.openCurrentSessionwithTransaction();
+//        empresaContacoDao.save(empresaContacto);
+//        empresaContacoDao.closeCurrentSessionwithTransaction();
+//    }
+//
+//     public void update(IEmpresaContacto empresaContacto) {
+//        empresaContacoDao.openCurrentSessionwithTransaction();
+//        empresaContacoDao.update(empresaContacto);
+//        empresaContacoDao.closeCurrentSessionwithTransaction();
+//    }
+// 
+//    public IEmpresaContacto findById(int id) {
+//        empresaContacoDao.openCurrentSession();
+//        IEmpresaContacto empresaContacto = empresaContacoDao.findById(id);
+//        empresaContacoDao.closeCurrentSession();
+//        return empresaContacto;
+//    }
+// 
+//    public void delete(IEmpresaContacto empresaContacto) {
+//        empresaContacoDao.openCurrentSessionwithTransaction();
+//       // IOperacao operacao = operacaoDao.findById(id);
+//        empresaContacoDao.delete(empresaContacto);
+//        empresaContacoDao.closeCurrentSessionwithTransaction();
+//    }
+// 
+//    public List<IEmpresaContacto> findAll() {
+//        empresaContacoDao.openCurrentSession();
+//        List<IEmpresaContacto> empresaContacto = empresaContacoDao.findAll();
+//        empresaContacoDao.closeCurrentSession();
+//        return empresaContacto;
+//    }
+// 
+//    public void deleteAll() {
+//        empresaContacoDao.openCurrentSessionwithTransaction();
+//        empresaContacoDao.deleteAll();
+//        empresaContacoDao.closeCurrentSessionwithTransaction();
+//    }
  
 }

@@ -11,15 +11,15 @@ package IContrato;
  */
 public interface IContentor {
 
-    IOperacao getOperacao();
+//    IOperacao getOperacao();
 
-    int getContentorId();
+    long getContentorId();
 
-    int getNrContentor();
+    int getNumeroContentor();
 
-    void setOperacao(IOperacao operacao);
+//    void setOperacao(IOperacao operacao);
 
     void setContentorId(int contentorId);
 
-    void setNrContentor(int nrContentor);
+    void setNumeroContentor(int numeroContentor);
 }

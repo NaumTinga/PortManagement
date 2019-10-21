@@ -5,9 +5,9 @@
  */
 package Model;
 
+
 import IContrato.IEmpresaContacto;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,42 +20,41 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "EmpresaDeContacto")
-public class EmpresaDeContacto implements IEmpresaContacto, Serializable {
-
+@Table(name = "empresaDeContacto")
+public class EmpresaDeContacto implements Serializable,IEmpresaContacto
+{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "empresaConatctoId")
-    private long empresaContactoId;
+    private int empresaContactoId;
 
-    @Column(name = "nome")
     private String nome;
 
-    public EmpresaDeContacto(long empresaContactoId, String nome) {
-        this.empresaContactoId = empresaContactoId;
-        this.nome = nome;
-    }
-
-    public EmpresaDeContacto() {
-    }
 
     @Override
-    public long getEmpresaContactoId() {
+    public long getEmpresaContactoId() 
+    {
         return empresaContactoId;
     }
 
     @Override
-    public void setEmpresaContactoId(long empresaContactoId) {
+    public void setEmpresaContactoId(int empresaContactoId) 
+    {
         this.empresaContactoId = empresaContactoId;
     }
 
     @Override
-    public String getNome() {
+    public String getNome() 
+    {
         return nome;
     }
 
-    @Override
-    public void setNome(String nome) {
+  /**
+   *
+   * @param nome
+   */
+  @Override
+    public void setNome(String nome) 
+    {
         this.nome = nome;
     }
 

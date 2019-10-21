@@ -6,10 +6,10 @@
 package ptmanagement;
 
 import Controller.EmpresaContactoController;
-import DAO.HibernateUtil;
+import IContrato.IEmpresaContacto;
 import Model.EmpresaDeContacto;
-import View.login.Login;
-import org.hibernate.Session;
+;
+
 
 /**
  *
@@ -21,15 +21,12 @@ public class PTManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     // new Login().setVisible(true);
-        EmpresaContactoController empresaController = new EmpresaContactoController();
-        EmpresaDeContacto empresa = new EmpresaDeContacto();
-         
-      
-        //empresa.setEmpresaContactoId(1);
-        empresa.setNome("Saiba Mais MZ");
-        
-        empresaController.save(empresa);
+
+      EmpresaContactoController empresaController = new EmpresaContactoController();
+      EmpresaDeContacto empresa =  new EmpresaDeContacto();
+      empresa.setNome("Saiba Mais MZ");
+      empresaController.save(empresa);
+
     }
     
 }

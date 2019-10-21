@@ -5,43 +5,36 @@
  */
 package DAO;
 
-import IContrato.IEmpresaContacto;
-import IContrato.IOperacao;
-import java.util.List;
+import IContrato.IEmpresaContactoDAO;
+import Model.EmpresaDeContacto;
+
 
 /**
  *
  * @author NAUM
  */
-public class EmpresaContactoDAO extends DAOGenerico{
+public class EmpresaContactoDAO implements IEmpresaContactoDAO{
+  private final Dao<EmpresaDeContacto, Integer> dao;
+  
+  public EmpresaContactoDAO()
+  {     
+    this.dao = new Dao<>(EmpresaDeContacto.class);
+  }
 
-    public void save(IEmpresaContacto empresaContacto) {
-        getCurrentSession().save(empresaContacto);
-    }
+  @Override
+  public void save(EmpresaDeContacto object) {
+    this.dao.save(object);
+  }
 
-    public void update(IEmpresaContacto empresaContacto) {
-        getCurrentSession().update(empresaContacto);
-    }
+  @Override
+  public void update(EmpresaDeContacto object) {
+    this.dao.update(object);
+  }
 
-    public IEmpresaContacto findById(int id) {
-        IEmpresaContacto empresaContacto = (IEmpresaContacto) getCurrentSession().get(IEmpresaContacto.class, id);
-        return empresaContacto;
-    }
+  @Override
+  public EmpresaDeContacto get(Integer Id) {
+    return (EmpresaDeContacto) this.dao.get(EmpresaDeContacto.class, Id);
+  }
 
-    public void delete(IEmpresaContacto empresaContacto) {
-        getCurrentSession().delete(empresaContacto);
-    }
 
-    @SuppressWarnings("unchecked")
-    public List<IEmpresaContacto> findAll() {
-        List<IEmpresaContacto> empresaContacto = (List<IEmpresaContacto>) getCurrentSession().createQuery("from Book").list();
-        return empresaContacto;
-    }
-
-    public void deleteAll() {
-        List<IEmpresaContacto> entityList = findAll();
-        for (IEmpresaContacto empresaContacto : entityList) {
-            delete(empresaContacto);
-        }
-    }
 }
